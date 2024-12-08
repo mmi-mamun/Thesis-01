@@ -69,26 +69,6 @@ export default function Hypothesis1() {
 					/>
 				</div>
 				<div>
-					<h4 className="font-semibold text-xl pt-8 pb-4 text-center">Step 1: Make the expected table</h4>
-					<p>
-						In order to make the <strong>Expected Table</strong>, we will apply this formula below:
-					</p>
-					<div className="flex justify-center">
-						<div className="pt-4 pb-2">
-							<MathJax>{`\\( E_{ij} = \\frac{\\text{Row Total} \\times \\text{Column Total}}{\\text{Grand Total}} \\)`}</MathJax>
-						</div>
-					</div>
-					<p className="pt-4">After applying the formula for each cell in the observed table, here is what we get: </p>
-					<h4 className="font-semibold text-xl py-4 text-center">Expected Table</h4>
-					<Grid
-						columns={[`Employment Status`, `With Micro-Credentials`, `Without Micro-Credentials`]}
-						data={[
-							[`Employed`, ...expected[0]],
-							[`Unemployed`, ...expected[1]],
-						]}
-					/>
-				</div>
-				<div>
 					<h4 className="font-semibold text-xl pt-8 pb-4 text-center">Step 2: Compute the Chi-Squared Statistic</h4>
 					<p>
 						In order to calculate the <strong>Chi-Squared Statistic</strong>, we will apply this formula below:
@@ -119,14 +99,18 @@ export default function Hypothesis1() {
 						In order to obtain the <strong>p-value</strong>, we need the value of <strong>Degree of Freedom</strong>, which follows this formula
 						below:
 					</p>
-					<div className="text-center pt-4 pb-2">
-						<MathJax inline>{`\\( df = n_0-1 \\times n_1-1 \\)`}</MathJax>
-					</div>
-					<div className="text-center pt-4 pb-2">
-						<MathJax inline>{`\\( df = ${observed[0].length}-1 \\times ${observed[1].length}-1 \\)`}</MathJax>
-					</div>
-					<div className="text-center pt-4 pb-2">
-						<MathJax inline>{`\\( df = ${dof} \\)`}</MathJax>
+					<div className="flex justify-center">
+						<div>
+							<div className="pt-4 pb-2">
+								<MathJax inline>{`\\( df = (n_0-1) \\times (n_1-1) \\)`}</MathJax>
+							</div>
+							<div className="pt-4 pb-2">
+								<MathJax inline>{`\\( df = (${observed[0].length}-1) \\times (${observed[1].length}-1) \\)`}</MathJax>
+							</div>
+							<div className="pt-4 pb-2">
+								<MathJax inline>{`\\( df = ${dof} \\)`}</MathJax>
+							</div>
+						</div>
 					</div>
 					<p className="py-2">
 						Using a t-distribution table or statistical software, we can determine the critical value or p-value. For this test we will use a node
