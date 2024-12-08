@@ -76,8 +76,11 @@ export function runHypothesis2(observed: number[][]) {
 	const p = (1 - jStat.normal.cdf(Math.abs(z), 0, 1)) * 2; // Two-tailed p-value
 
 	return {
+		observed,
+		combined,
 		n0, // Number of elements in group 0
 		n1, // Number of elements in group 1
+		rankedGroups,
 		rankSumGroup0, // Rank sum for group 0
 		rankSumGroup1, // Rank sum for group 1
 		u0, // U-statistic for group 0

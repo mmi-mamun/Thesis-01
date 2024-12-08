@@ -4,8 +4,28 @@ import { runHypothesis2 } from "./hypothesis-2";
 import { runHypothesis3 } from "./hypothesis-3";
 
 // Column letters mapped to indexes (A -> 0, B -> 1, ...)
-const columns = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-const [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z] = columns.map((char) => columns.indexOf(char));
+export const columns = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+export const [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z] = columns.map((char) => columns.indexOf(char));
+// Mapping values for duration and Likert scale
+export const map = {
+	duration: {
+		"less than 1 month": 1,
+		"1-3 months": 2,
+		"4-6 months": 3,
+		"7-12 months": 4,
+		"12-24 months": 5,
+		"more than 24 months": 6,
+		"": NaN, // Empty strings are mapped to NaN
+	} as { [key: string]: number },
+	likertScale: {
+		"very likely": 5,
+		likely: 4,
+		neutral: 3,
+		unlikely: 2,
+		"very unlikely": 1,
+		"": NaN, // Empty strings are mapped to NaN
+	} as { [key: string]: number },
+};
 
 export function extractHypothesisData(itGraduatesTable?: string[][], recruitersTable?: string[][]) {
 	const newItGraduatesTable = itGraduatesTable?.map((row) => row.map((v) => v));
@@ -23,27 +43,6 @@ export function extractHypothesisData(itGraduatesTable?: string[][], recruitersT
 			yes: str === "yes", // Checks if the string is "yes"
 			no: str === "no", // Checks if the string is "no"
 		};
-	};
-
-	// Mapping values for duration and Likert scale
-	const map = {
-		duration: {
-			"less than 1 month": 1,
-			"1-3 months": 2,
-			"4-6 months": 3,
-			"7-12 months": 4,
-			"12-24 months": 5,
-			"more than 24 months": 6,
-			"": NaN, // Empty strings are mapped to NaN
-		} as { [key: string]: number },
-		likertScale: {
-			"very likely": 5,
-			likely: 4,
-			neutral: 3,
-			unlikely: 2,
-			"very unlikely": 1,
-			"": NaN, // Empty strings are mapped to NaN
-		} as { [key: string]: number },
 	};
 
 	// Helper function to convert duration text to corresponding value

@@ -1,6 +1,7 @@
 "use client";
 
 import { DataProvider } from "@/contexts/data-context";
+import { MathJaxContext } from "better-react-mathjax";
 import { useEffect, useState } from "react";
 
 export default function PageLayout({ children }: React.PropsWithChildren) {
@@ -14,7 +15,9 @@ export default function PageLayout({ children }: React.PropsWithChildren) {
 
 	return (
 		<>
-			<DataProvider>{children}</DataProvider>
+			<MathJaxContext>
+				<DataProvider>{children}</DataProvider>
+			</MathJaxContext>
 		</>
 	);
 }
