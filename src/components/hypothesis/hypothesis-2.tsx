@@ -34,7 +34,7 @@ export default function Hypothesis2() {
 			</div>
 			<div>
 				<div>
-					<p className="pb-2">For this hypothesis, we are going to use the data below in the table: </p>
+					<p className="pb-2">For this hypothesis, we are going to use the data in the table below: </p>
 					<Grid
 						columns={[`With Micro-Credentials`, `Time Taken to Secure Job`]}
 						data={itGraduatesTable?.map((row, i) => [row[F], row[L]]).slice(1)}

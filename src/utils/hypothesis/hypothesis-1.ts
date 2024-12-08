@@ -46,5 +46,15 @@ export function runHypothesis1(observed: number[][]) {
 	// Compute the p-value using chi-square cumulative distribution function
 	const p = 1 - jStat.chisquare.cdf(chiSquare, dof);
 
-	return { observed, expected, calculated, chiSquare, p };
+	return {
+		observed,
+		rowTotals,
+		colTotals,
+		total,
+		expected,
+		calculated,
+		chiSquare,
+		dof,
+		p,
+	};
 }

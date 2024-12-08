@@ -28,7 +28,7 @@ export default function Hypothesis3() {
 				</p>
 			</div>
 			<div>
-				<p className="pb-2">For this hypothesis, we are going to use the data below in the table: </p>
+				<p className="pb-2">For this hypothesis, we are going to use the data in the table below: </p>
 				<Grid columns={["Ratings"]} data={recruitersTable?.map((row) => [row[I]]).slice(1)} pagination={{ limit: 10 }} />
 
 				<div className="py-2">
@@ -37,7 +37,7 @@ export default function Hypothesis3() {
 					</p>
 					<div>
 						<p className="py-2">
-							As <strong>One Sample T Test</strong> expects the data to be distinguishable meaning two different categories are not equally different,
+							As the <strong>One Sample T Test</strong> expects the data to be distinguishable meaning two different categories are not equally different,
 							rather one category has precedence over the other category, so, we need to convert those ratings into number values. There are{" "}
 							<strong>{Object.keys(map.likertScale).length - 1}</strong> different rating categories, so we will refer number values for them
 							accordingly:
