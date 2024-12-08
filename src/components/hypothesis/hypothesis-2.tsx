@@ -277,7 +277,10 @@ export default function Hypothesis2() {
 						</p>
 						<p className="py-2">
 							So, we conclude that{" "}
-							<strong>IT graduates with micro-credentials secure jobs significantly faster than those without micro-credentials.</strong>
+							<strong>
+								IT graduates with micro-credentials {p < 0.05 ? "secure" : "don't secure"} jobs significantly faster than those without
+								micro-credentials.
+							</strong>
 						</p>
 					</div>
 				</div>
